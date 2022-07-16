@@ -68,6 +68,8 @@ matrix.each do |item|
 			puts "User wins!" 
 		elsif item[2] == :second_win
 			puts "Computer wins!"
+        elsif item[2] == :draw
+            puts 'Draw!'
 		end
 
 		# Выход из программы
