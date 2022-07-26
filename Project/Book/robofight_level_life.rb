@@ -2,9 +2,9 @@
 # ОБЪЯВЛЯЕМ МАССИВЫ
 ###############################
 # массив для первой команды
-    @arr1 = Array.new(10, 1)
+@arr1 = Array.new(10, 100)
 # массив для второй команды
-    @arr2 = Array.new(10, 1)
+    @arr2 = Array.new(10, 100)
 
 ###############################
 # АТАКА
@@ -13,9 +13,10 @@
 def attack(arr)
     sleep 1 # добавим sleep для красоты
     i = rand(0..9)
-    if arr[i] == 1
-        arr[i] = 0
-        puts "Робот по индексу #{i} уничтожен"
+    power = rand(30..100)
+    if arr[i] >= 0
+        arr[i] = arr[i]-power
+        puts "Робот по индексу #{i} теряет #{power} жизней и у него остаеться #{arr[i]} жизней"
     else
         puts "Промазали по индексу #{i}"
     end
@@ -25,8 +26,8 @@ def attack(arr)
     # ПРОВЕРКА ПОБЕДЫ
     ###############################
     def victory?
-        robots_left1 = @arr1.count { |x| x == 1 }
-        robots_left2 = @arr2.count { |x| x == 1 }
+        robots_left1 = @arr1.count { |x| x >= 0 }
+        robots_left2 = @arr2.count { |x| x >= 0 }
     if robots_left1 == 0
         puts "Команда 2 победила, в команде осталось #{robots_left2} роботов"
     return true
@@ -42,10 +43,10 @@ end
 ###############################
 def stats
 # количество живых роботов для первой и второй команды
-    cnt1 = @arr1.count { |x| x == 1 }
-    cnt2 = @arr2.count { |x| x == 1 }
-    dest1 = @arr1.count {|x| x == 0}
-    dest2 = @arr2.count {|x| x == 0}
+    cnt1 = @arr1.count { |x| x >= 0 }
+    cnt2 = @arr2.count { |x| x >= 0 }
+    dest1 = @arr1.count {|x| x <= 0}
+    dest2 = @arr2.count {|x| x <= 0}
     puts "1-ая команда: #{cnt1} роботов в строю"
     puts "2-ая команда: #{cnt2} роботов в строю"
     puts "1-ая команда потеряла: #{dest1} роботов"
