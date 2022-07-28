@@ -1,25 +1,24 @@
-arr = [
-    [],
-    [],
-    ['A', 'B', 'C'],
-    ['D', 'E', 'F'],
-    ['G', 'H', 'I'],
-    ['J', 'K', 'L'],
-    ['M', 'N', 'O'],
-    ['P', 'Q', 'R', 'S'],
-    ['T', 'U', 'V'],
-    ['W', 'X', 'Y', 'Z']
+@arr = [
+    ['0'],
+    ['1'],
+    ['2','A', 'B', 'C'],
+    ['3', 'D', 'E', 'F'],
+    ['4', 'G', 'H', 'I'],
+    ['5', 'J', 'K', 'L'],
+    ['6', 'M', 'N', 'O'],
+    ['7', 'P', 'Q', 'R', 'S'],
+    ['8', 'T', 'U', 'V'],
+    ['9', 'W', 'X', 'Y', 'Z'],
 ]
 
+#phone = gets.chomp.upcase 
+
 def phone_to_number(phone)
-    arr[0] = 0
-    arr[1] = 0
-    arr[2] = 2
-    arr[3] = 3
-    arr[4] = 4
-    arr[5] = arr[5](5)
-    arr[6][0] = 6
+    phone.each_char  do |i|
+        @arr.each_with_index do |element,index|
+        print index if element.include?(i)
+        end
+    end
 end
 
-puts phone_to_number('555MATRESS')
-
+phone_to_number('555MATRESS')
