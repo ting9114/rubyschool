@@ -11,7 +11,7 @@
     ['9', 'W', 'X', 'Y', 'Z'],
 ]
 
-#phone = gets.chomp.upcase 
+phone = gets.chomp.upcase 
 
 def phone_to_number(phone)
     phone.each_char  do |i|
@@ -21,4 +21,4 @@ def phone_to_number(phone)
     end
 end
 
-phone_to_number('555MATRESS')
+phone_to_number(phone)
